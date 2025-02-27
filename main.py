@@ -11,10 +11,10 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     delta_time = 0
-    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
-    player.containers = (updatable, drawable)
+    Player.containers = (updatable, drawable)
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     # The game loop
     while True:
