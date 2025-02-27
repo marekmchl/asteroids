@@ -1,4 +1,5 @@
 import pygame
+from sys import exit
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
@@ -31,6 +32,11 @@ def main():
 
         screen.fill(0)
         updatable.update(delta_time)
+        for object in asteroids:
+            if object.collide_with(player):
+                print("Game over!")
+                exit(1)
+
         for item in drawable:
             item.draw(screen)
 
