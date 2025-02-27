@@ -1,11 +1,14 @@
 import pygame
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT, ASTEROID_MIN_RADIUS, ASTEROID_KINDS, ASTEROID_SPAWN_RATE, ASTEROID_MAX_RADIUS
-
+from player import Player
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     delta_time = 0
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
+    # The game loop
     while True:
         # Makes the windows close button work
         for event in pygame.event.get():
@@ -13,6 +16,7 @@ def main():
                 return
 
         screen.fill(0)
+        player.draw(screen)
         # Pauses the game loop for 1/60th of a second
         milis = clock.tick(60)
         delta_time = milis / 1000
