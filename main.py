@@ -1,6 +1,11 @@
 import pygame
-from constants import SCREEN_WIDTH, SCREEN_HEIGHT, ASTEROID_MIN_RADIUS, ASTEROID_KINDS, ASTEROID_SPAWN_RATE, ASTEROID_MAX_RADIUS
 from player import Player
+from constants import (
+    SCREEN_WIDTH, SCREEN_HEIGHT,
+    ASTEROID_MIN_RADIUS, ASTEROID_KINDS, ASTEROID_SPAWN_RATE, ASTEROID_MAX_RADIUS,
+    PLAYER_TURN_SPEED
+)
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -16,6 +21,7 @@ def main():
                 return
 
         screen.fill(0)
+        player.update(delta_time)
         player.draw(screen)
         # Pauses the game loop for 1/60th of a second
         milis = clock.tick(60)
